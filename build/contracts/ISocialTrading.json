@@ -1,0 +1,950 @@
+{
+  "contractName": "ISocialTrading",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipRenounced",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_leader",
+          "type": "address"
+        },
+        {
+          "name": "_percentage",
+          "type": "uint256"
+        }
+      ],
+      "name": "follow",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_leader",
+          "type": "address"
+        }
+      ],
+      "name": "unfollow",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_user",
+          "type": "address"
+        }
+      ],
+      "name": "getFriends",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_user",
+          "type": "address"
+        }
+      ],
+      "name": "getFollowers",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\n\ncontract ISocialTrading is Ownable {\n\n  /**\n   * @dev Follow leader to copy trade.\n   */\n  function follow(address _leader, uint256 _percentage) external;\n\n  /**\n   * @dev UnFollow leader to stop copy trade.\n   */\n  function unfollow(address _leader) external;\n\n  /**\n  * Friends - we refer to \"friends\" as the users that a specific user follows (e.g., following).\n  */\n  function getFriends(address _user) public view returns (address[]);\n\n  /**\n  * Followers - refers to the users that follow a specific user.\n  */\n  function getFollowers(address _user) public view returns (address[]);\n}\n",
+  "sourcePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/interfaces/ISocialTrading.sol",
+  "ast": {
+    "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/interfaces/ISocialTrading.sol",
+    "exportedSymbols": {
+      "ISocialTrading": [
+        3325
+      ]
+    },
+    "id": 3326,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3293,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 3294,
+        "nodeType": "ImportDirective",
+        "scope": 3326,
+        "sourceUnit": 5945,
+        "src": "26:63:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3295,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5944,
+              "src": "118:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$5944",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 3296,
+            "nodeType": "InheritanceSpecifier",
+            "src": "118:7:14"
+          }
+        ],
+        "contractDependencies": [
+          5944
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 3325,
+        "linearizedBaseContracts": [
+          3325,
+          5944
+        ],
+        "name": "ISocialTrading",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Follow leader to copy trade.",
+            "id": 3303,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "follow",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3301,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3298,
+                  "name": "_leader",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3303,
+                  "src": "198:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3297,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "198:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3300,
+                  "name": "_percentage",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3303,
+                  "src": "215:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3299,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "215:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "197:38:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3302,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "244:0:14"
+            },
+            "scope": 3325,
+            "src": "182:63:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev UnFollow leader to stop copy trade.",
+            "id": 3308,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "unfollow",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3306,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3305,
+                  "name": "_leader",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3308,
+                  "src": "325:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3304,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "325:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "324:17:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3307,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "350:0:14"
+            },
+            "scope": 3325,
+            "src": "307:44:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "Friends - we refer to \"friends\" as the users that a specific user follows (e.g., following).",
+            "id": 3316,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getFriends",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3311,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3310,
+                  "name": "_user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3316,
+                  "src": "483:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3309,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "483:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "482:15:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3315,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3314,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3316,
+                  "src": "519:9:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3312,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "519:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 3313,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "519:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "518:11:14"
+            },
+            "scope": 3325,
+            "src": "463:67:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "Followers - refers to the users that follow a specific user.",
+            "id": 3324,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getFollowers",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3319,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3318,
+                  "name": "_user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3324,
+                  "src": "632:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3317,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "632:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "631:15:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3323,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3322,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3324,
+                  "src": "668:9:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3320,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "668:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 3321,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "668:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "667:11:14"
+            },
+            "scope": 3325,
+            "src": "610:69:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3326,
+        "src": "91:590:14"
+      }
+    ],
+    "src": "0:682:14"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/interfaces/ISocialTrading.sol",
+    "exportedSymbols": {
+      "ISocialTrading": [
+        3325
+      ]
+    },
+    "id": 3326,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3293,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 3294,
+        "nodeType": "ImportDirective",
+        "scope": 3326,
+        "sourceUnit": 5945,
+        "src": "26:63:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3295,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5944,
+              "src": "118:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$5944",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 3296,
+            "nodeType": "InheritanceSpecifier",
+            "src": "118:7:14"
+          }
+        ],
+        "contractDependencies": [
+          5944
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 3325,
+        "linearizedBaseContracts": [
+          3325,
+          5944
+        ],
+        "name": "ISocialTrading",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Follow leader to copy trade.",
+            "id": 3303,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "follow",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3301,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3298,
+                  "name": "_leader",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3303,
+                  "src": "198:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3297,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "198:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3300,
+                  "name": "_percentage",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3303,
+                  "src": "215:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3299,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "215:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "197:38:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3302,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "244:0:14"
+            },
+            "scope": 3325,
+            "src": "182:63:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev UnFollow leader to stop copy trade.",
+            "id": 3308,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "unfollow",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3306,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3305,
+                  "name": "_leader",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3308,
+                  "src": "325:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3304,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "325:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "324:17:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3307,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "350:0:14"
+            },
+            "scope": 3325,
+            "src": "307:44:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "Friends - we refer to \"friends\" as the users that a specific user follows (e.g., following).",
+            "id": 3316,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getFriends",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3311,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3310,
+                  "name": "_user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3316,
+                  "src": "483:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3309,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "483:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "482:15:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3315,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3314,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3316,
+                  "src": "519:9:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3312,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "519:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 3313,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "519:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "518:11:14"
+            },
+            "scope": 3325,
+            "src": "463:67:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "Followers - refers to the users that follow a specific user.",
+            "id": 3324,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getFollowers",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3319,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3318,
+                  "name": "_user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3324,
+                  "src": "632:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3317,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "632:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "631:15:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3323,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3322,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3324,
+                  "src": "668:9:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3320,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "668:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 3321,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "668:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "667:11:14"
+            },
+            "scope": 3325,
+            "src": "610:69:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3326,
+        "src": "91:590:14"
+      }
+    ],
+    "src": "0:682:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.2",
+  "updatedAt": "2019-06-10T11:28:52.435Z"
+}

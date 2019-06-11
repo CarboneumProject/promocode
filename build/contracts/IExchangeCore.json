@@ -1,0 +1,1098 @@
+{
+  "contractName": "IExchangeCore",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "targetOrderEpoch",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelOrdersUpTo",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "makerAddress",
+              "type": "address"
+            },
+            {
+              "name": "takerAddress",
+              "type": "address"
+            },
+            {
+              "name": "feeRecipientAddress",
+              "type": "address"
+            },
+            {
+              "name": "senderAddress",
+              "type": "address"
+            },
+            {
+              "name": "makerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "takerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "makerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "takerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "expirationTimeSeconds",
+              "type": "uint256"
+            },
+            {
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "name": "makerAssetData",
+              "type": "bytes"
+            },
+            {
+              "name": "takerAssetData",
+              "type": "bytes"
+            }
+          ],
+          "name": "order",
+          "type": "tuple"
+        },
+        {
+          "name": "takerAssetFillAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "fillOrder",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "makerAssetFilledAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "takerAssetFilledAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "makerFeePaid",
+              "type": "uint256"
+            },
+            {
+              "name": "takerFeePaid",
+              "type": "uint256"
+            }
+          ],
+          "name": "fillResults",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "makerAddress",
+              "type": "address"
+            },
+            {
+              "name": "takerAddress",
+              "type": "address"
+            },
+            {
+              "name": "feeRecipientAddress",
+              "type": "address"
+            },
+            {
+              "name": "senderAddress",
+              "type": "address"
+            },
+            {
+              "name": "makerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "takerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "makerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "takerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "expirationTimeSeconds",
+              "type": "uint256"
+            },
+            {
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "name": "makerAssetData",
+              "type": "bytes"
+            },
+            {
+              "name": "takerAssetData",
+              "type": "bytes"
+            }
+          ],
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "cancelOrder",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "makerAddress",
+              "type": "address"
+            },
+            {
+              "name": "takerAddress",
+              "type": "address"
+            },
+            {
+              "name": "feeRecipientAddress",
+              "type": "address"
+            },
+            {
+              "name": "senderAddress",
+              "type": "address"
+            },
+            {
+              "name": "makerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "takerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "makerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "takerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "expirationTimeSeconds",
+              "type": "uint256"
+            },
+            {
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "name": "makerAssetData",
+              "type": "bytes"
+            },
+            {
+              "name": "takerAssetData",
+              "type": "bytes"
+            }
+          ],
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "getOrderInfo",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "orderStatus",
+              "type": "uint8"
+            },
+            {
+              "name": "orderHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "orderTakerAssetFilledAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "orderInfo",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "/*\n\n  Copyright 2018 ZeroEx Intl.\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n\n*/\n\npragma solidity ^0.4.24;\npragma experimental ABIEncoderV2;\n\nimport \"../libs/LibOrder.sol\";\nimport \"../libs/LibFillResults.sol\";\n\n\ncontract IExchangeCore {\n\n  /// @dev Cancels all orders created by makerAddress with a salt less than or equal to the targetOrderEpoch\n  ///      and senderAddress equal to msg.sender (or null address if msg.sender == makerAddress).\n  /// @param targetOrderEpoch Orders created with a salt less or equal to this value will be cancelled.\n  function cancelOrdersUpTo(uint256 targetOrderEpoch)\n  external;\n\n  /// @dev Fills the input order.\n  /// @param order Order struct containing order specifications.\n  /// @param takerAssetFillAmount Desired amount of takerAsset to sell.\n  /// @param signature Proof that order has been created by maker.\n  /// @return Amounts filled and fees paid by maker and taker.\n  function fillOrder(\n    LibOrder.Order memory order,\n    uint256 takerAssetFillAmount,\n    bytes memory signature\n  )\n  public\n  returns (LibFillResults.FillResults memory fillResults);\n\n  /// @dev After calling, the order can not be filled anymore.\n  /// @param order Order struct containing order specifications.\n  function cancelOrder(LibOrder.Order memory order)\n  public;\n\n  /// @dev Gets information about an order: status, hash, and amount filled.\n  /// @param order Order to gather information on.\n  /// @return OrderInfo Information about the order and its state.\n  ///                   See LibOrder.OrderInfo for a complete description.\n  function getOrderInfo(LibOrder.Order memory order)\n  public\n  view\n  returns (LibOrder.OrderInfo memory orderInfo);\n}\n",
+  "sourcePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/interfaces/IExchangeCore.sol",
+  "ast": {
+    "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/interfaces/IExchangeCore.sol",
+    "exportedSymbols": {
+      "IExchangeCore": [
+        3242
+      ]
+    },
+    "id": 3243,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3210,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "580:24:11"
+      },
+      {
+        "id": 3211,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "605:33:11"
+      },
+      {
+        "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/libs/LibOrder.sol",
+        "file": "../libs/LibOrder.sol",
+        "id": 3212,
+        "nodeType": "ImportDirective",
+        "scope": 3243,
+        "sourceUnit": 4283,
+        "src": "640:30:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/libs/LibFillResults.sol",
+        "file": "../libs/LibFillResults.sol",
+        "id": 3213,
+        "nodeType": "ImportDirective",
+        "scope": 3243,
+        "sourceUnit": 4169,
+        "src": "671:36:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 3242,
+        "linearizedBaseContracts": [
+          3242
+        ],
+        "name": "IExchangeCore",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Cancels all orders created by makerAddress with a salt less than or equal to the targetOrderEpoch\n      and senderAddress equal to msg.sender (or null address if msg.sender == makerAddress).\n @param targetOrderEpoch Orders created with a salt less or equal to this value will be cancelled.",
+            "id": 3218,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "cancelOrdersUpTo",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3216,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3215,
+                  "name": "targetOrderEpoch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3218,
+                  "src": "1075:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3214,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1075:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1074:26:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3217,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1111:0:11"
+            },
+            "scope": 3242,
+            "src": "1049:63:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Fills the input order.\n @param order Order struct containing order specifications.\n @param takerAssetFillAmount Desired amount of takerAsset to sell.\n @param signature Proof that order has been created by maker.\n @return Amounts filled and fees paid by maker and taker.",
+            "id": 3229,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "fillOrder",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3225,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3220,
+                  "name": "order",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3229,
+                  "src": "1441:27:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$4227_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3219,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4227,
+                    "src": "1441:14:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$4227_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3222,
+                  "name": "takerAssetFillAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3229,
+                  "src": "1474:28:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3221,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1474:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3224,
+                  "name": "signature",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3229,
+                  "src": "1508:22:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3223,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1508:5:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1435:99:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3228,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3227,
+                  "name": "fillResults",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3229,
+                  "src": "1555:45:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_FillResults_$4108_memory_ptr",
+                    "typeString": "struct LibFillResults.FillResults"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3226,
+                    "name": "LibFillResults.FillResults",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4108,
+                    "src": "1555:26:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FillResults_$4108_storage_ptr",
+                      "typeString": "struct LibFillResults.FillResults"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1554:47:11"
+            },
+            "scope": 3242,
+            "src": "1417:185:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@dev After calling, the order can not be filled anymore.\n @param order Order struct containing order specifications.",
+            "id": 3234,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "cancelOrder",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3232,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3231,
+                  "name": "order",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3234,
+                  "src": "1755:27:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$4227_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3230,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4227,
+                    "src": "1755:14:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$4227_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1754:29:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3233,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1792:0:11"
+            },
+            "scope": 3242,
+            "src": "1734:59:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Gets information about an order: status, hash, and amount filled.\n @param order Order to gather information on.\n @return OrderInfo Information about the order and its state.\n                   See LibOrder.OrderInfo for a complete description.",
+            "id": 3241,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getOrderInfo",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3237,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3236,
+                  "name": "order",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3241,
+                  "src": "2089:27:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$4227_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3235,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4227,
+                    "src": "2089:14:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$4227_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2088:29:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3240,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3239,
+                  "name": "orderInfo",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3241,
+                  "src": "2145:35:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_OrderInfo_$4234_memory_ptr",
+                    "typeString": "struct LibOrder.OrderInfo"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3238,
+                    "name": "LibOrder.OrderInfo",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4234,
+                    "src": "2145:18:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_OrderInfo_$4234_storage_ptr",
+                      "typeString": "struct LibOrder.OrderInfo"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2144:37:11"
+            },
+            "scope": 3242,
+            "src": "2067:115:11",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3243,
+        "src": "710:1474:11"
+      }
+    ],
+    "src": "580:1605:11"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/interfaces/IExchangeCore.sol",
+    "exportedSymbols": {
+      "IExchangeCore": [
+        3242
+      ]
+    },
+    "id": 3243,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3210,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "580:24:11"
+      },
+      {
+        "id": 3211,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "605:33:11"
+      },
+      {
+        "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/libs/LibOrder.sol",
+        "file": "../libs/LibOrder.sol",
+        "id": 3212,
+        "nodeType": "ImportDirective",
+        "scope": 3243,
+        "sourceUnit": 4283,
+        "src": "640:30:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/libs/LibFillResults.sol",
+        "file": "../libs/LibFillResults.sol",
+        "id": 3213,
+        "nodeType": "ImportDirective",
+        "scope": 3243,
+        "sourceUnit": 4169,
+        "src": "671:36:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 3242,
+        "linearizedBaseContracts": [
+          3242
+        ],
+        "name": "IExchangeCore",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Cancels all orders created by makerAddress with a salt less than or equal to the targetOrderEpoch\n      and senderAddress equal to msg.sender (or null address if msg.sender == makerAddress).\n @param targetOrderEpoch Orders created with a salt less or equal to this value will be cancelled.",
+            "id": 3218,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "cancelOrdersUpTo",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3216,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3215,
+                  "name": "targetOrderEpoch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3218,
+                  "src": "1075:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3214,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1075:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1074:26:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3217,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1111:0:11"
+            },
+            "scope": 3242,
+            "src": "1049:63:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Fills the input order.\n @param order Order struct containing order specifications.\n @param takerAssetFillAmount Desired amount of takerAsset to sell.\n @param signature Proof that order has been created by maker.\n @return Amounts filled and fees paid by maker and taker.",
+            "id": 3229,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "fillOrder",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3225,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3220,
+                  "name": "order",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3229,
+                  "src": "1441:27:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$4227_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3219,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4227,
+                    "src": "1441:14:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$4227_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3222,
+                  "name": "takerAssetFillAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3229,
+                  "src": "1474:28:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3221,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1474:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3224,
+                  "name": "signature",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3229,
+                  "src": "1508:22:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3223,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1508:5:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1435:99:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3228,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3227,
+                  "name": "fillResults",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3229,
+                  "src": "1555:45:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_FillResults_$4108_memory_ptr",
+                    "typeString": "struct LibFillResults.FillResults"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3226,
+                    "name": "LibFillResults.FillResults",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4108,
+                    "src": "1555:26:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FillResults_$4108_storage_ptr",
+                      "typeString": "struct LibFillResults.FillResults"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1554:47:11"
+            },
+            "scope": 3242,
+            "src": "1417:185:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@dev After calling, the order can not be filled anymore.\n @param order Order struct containing order specifications.",
+            "id": 3234,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "cancelOrder",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3232,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3231,
+                  "name": "order",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3234,
+                  "src": "1755:27:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$4227_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3230,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4227,
+                    "src": "1755:14:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$4227_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1754:29:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3233,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1792:0:11"
+            },
+            "scope": 3242,
+            "src": "1734:59:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Gets information about an order: status, hash, and amount filled.\n @param order Order to gather information on.\n @return OrderInfo Information about the order and its state.\n                   See LibOrder.OrderInfo for a complete description.",
+            "id": 3241,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getOrderInfo",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3237,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3236,
+                  "name": "order",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3241,
+                  "src": "2089:27:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$4227_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3235,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4227,
+                    "src": "2089:14:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$4227_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2088:29:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3240,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3239,
+                  "name": "orderInfo",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3241,
+                  "src": "2145:35:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_OrderInfo_$4234_memory_ptr",
+                    "typeString": "struct LibOrder.OrderInfo"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3238,
+                    "name": "LibOrder.OrderInfo",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4234,
+                    "src": "2145:18:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_OrderInfo_$4234_storage_ptr",
+                      "typeString": "struct LibOrder.OrderInfo"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2144:37:11"
+            },
+            "scope": 3242,
+            "src": "2067:115:11",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3243,
+        "src": "710:1474:11"
+      }
+    ],
+    "src": "580:1605:11"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.2",
+  "updatedAt": "2019-06-10T11:28:52.434Z"
+}

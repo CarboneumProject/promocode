@@ -1,0 +1,394 @@
+{
+  "contractName": "ITransactions",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "salt",
+          "type": "uint256"
+        },
+        {
+          "name": "signerAddress",
+          "type": "address"
+        },
+        {
+          "name": "data",
+          "type": "bytes"
+        },
+        {
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "executeTransaction",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "/*\n\n  Copyright 2018 ZeroEx Intl.\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n\n*/\npragma solidity ^0.4.24;\n\n\ncontract ITransactions {\n\n  /// @dev Executes an exchange method call in the context of signer.\n  /// @param salt Arbitrary number to ensure uniqueness of transaction hash.\n  /// @param signerAddress Address of transaction signer.\n  /// @param data AbiV2 encoded calldata.\n  /// @param signature Proof of signer transaction by signer.\n  function executeTransaction(\n    uint256 salt,\n    address signerAddress,\n    bytes data,\n    bytes signature\n  )\n  external;\n}\n",
+  "sourcePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/interfaces/ITransactions.sol",
+  "ast": {
+    "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/interfaces/ITransactions.sol",
+    "exportedSymbols": {
+      "ITransactions": [
+        3339
+      ]
+    },
+    "id": 3340,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3327,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "579:24:15"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 3339,
+        "linearizedBaseContracts": [
+          3339
+        ],
+        "name": "ITransactions",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Executes an exchange method call in the context of signer.\n @param salt Arbitrary number to ensure uniqueness of transaction hash.\n @param signerAddress Address of transaction signer.\n @param data AbiV2 encoded calldata.\n @param signature Proof of signer transaction by signer.",
+            "id": 3338,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "executeTransaction",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3336,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3329,
+                  "name": "salt",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "976:12:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3328,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "976:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3331,
+                  "name": "signerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "994:21:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3330,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "994:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3333,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "1021:10:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3332,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1021:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3335,
+                  "name": "signature",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "1037:15:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3334,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1037:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "970:86:15"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3337,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1067:0:15"
+            },
+            "scope": 3339,
+            "src": "943:125:15",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3340,
+        "src": "606:464:15"
+      }
+    ],
+    "src": "579:492:15"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/robot/CarboneumProject/contracts/contracts/socialtrading/interfaces/ITransactions.sol",
+    "exportedSymbols": {
+      "ITransactions": [
+        3339
+      ]
+    },
+    "id": 3340,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3327,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "579:24:15"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 3339,
+        "linearizedBaseContracts": [
+          3339
+        ],
+        "name": "ITransactions",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Executes an exchange method call in the context of signer.\n @param salt Arbitrary number to ensure uniqueness of transaction hash.\n @param signerAddress Address of transaction signer.\n @param data AbiV2 encoded calldata.\n @param signature Proof of signer transaction by signer.",
+            "id": 3338,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "executeTransaction",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3336,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3329,
+                  "name": "salt",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "976:12:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3328,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "976:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3331,
+                  "name": "signerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "994:21:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3330,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "994:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3333,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "1021:10:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3332,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1021:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3335,
+                  "name": "signature",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "1037:15:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3334,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1037:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "970:86:15"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3337,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1067:0:15"
+            },
+            "scope": 3339,
+            "src": "943:125:15",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3340,
+        "src": "606:464:15"
+      }
+    ],
+    "src": "579:492:15"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.2",
+  "updatedAt": "2019-06-10T11:28:52.435Z"
+}
