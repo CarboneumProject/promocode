@@ -58,7 +58,7 @@
 <nav class="navbar">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="myNavbar">
-            <img src="carboneum.png" class="img-responsive center-block" style="height: 100px">
+            <img src="carboneum.png" class="img-responsive center-block" style="height: 80px">
         </div>
     </div>
 </nav>
@@ -66,42 +66,21 @@
 <div class="container-fluid text-center">
     <div class="row">
         <div class="col-sm-12 text-center">
-            <h1>Carboneum Redeem Code</h1>
             <h2>Your promo code is:</h2>
-            <h3 id="promocode">-</h3>
-            <h3>signature:</h3>
-            <p class="wordwrap" id="signature">-</p>
+            <h2 id="promocode">-</h2>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-2">
         </div>
-        <div class="col-sm-8 text-left">
-            <div class="text-left">
-                <hr>
-                <h3>How to redeem C8 from your code</h3>
+        <div class="col-sm-8 text-center">
+            <div class="text-center">
                 <div>
-                    <ul>
-                        <li>Install
-                            <a target="_blank"
-                               href="https://metamask.io/">
-                                MetaMask
-                            </a>
-                            Extension and setup your wallet and add some ETH to it
-                        </li>
-                        <li>Go to our smart contract page on
-                            <a target="_blank"
-                               href="https://etherscan.io/address/0xb82545e883a22787b8912c4fbcdbf64156358701#writeContract">
-                                Etherscan
-                            </a>
-                        </li>
-                        <li>Click "Write Contract Connect to Web3"</li>
-                        <li>Find section '4. redeem'</li>
-                        <li>Fill your promo code and signature from above and click "Write"</li>
-                        <li>Click "Confirm" on MetaMask and wait a few minute for transaction process</li>
-                    </ul>
+                    <button onclick="redeem()" class="btn button">
+                        Redeem
+                    </button>
                 </div>
-                <hr>
+                <p id="message" style="height: 40px; margin-top: 20px;"></p>
             </div>
         </div>
         <div class="col-sm-2">
@@ -109,18 +88,298 @@
     </div>
 </div>
 
-<footer class="container-fluid text-center">
-    <p>Copyright © 2019 carboneum.io</p>
-</footer>
-
 <script>
   let url_string = window.location.href;
   let url = new URL(url_string);
   let code = url.searchParams.get('c');
   let signature = url.searchParams.get('s');
-  document.getElementById('promocode').innerHTML = '<b>'+ code + '</b>';
-  document.getElementById('signature').innerHTML = signature;
+  document.getElementById('promocode').innerHTML = '<b>' + code + '</b>';
   console.log(code, signature);
+
+  function showMsg(msg) {
+    document.getElementById('message').innerHTML = msg;
+  }
+
+  function redeem() {
+    const PromoCodeABI = [
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "amount",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "name": "used",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "token",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "name": "_token",
+            "type": "address"
+          },
+          {
+            "name": "_amount",
+            "type": "uint256"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "user",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "name": "code",
+            "type": "string"
+          }
+        ],
+        "name": "Redeem",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "name": "previousOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipRenounced",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "name": "previousOwner",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "setAmount",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "promoCode",
+            "type": "string"
+          },
+          {
+            "name": "signature",
+            "type": "bytes"
+          }
+        ],
+        "name": "redeem",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "v",
+            "type": "uint8"
+          },
+          {
+            "name": "r",
+            "type": "bytes32"
+          },
+          {
+            "name": "s",
+            "type": "bytes32"
+          }
+        ],
+        "name": "verifyString",
+        "outputs": [
+          {
+            "name": "signer",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "pure",
+        "type": "function"
+      }
+    ];
+    let contractAddress = '0xb82545e883a22787b8912c4fbcdbf64156358701';
+    const mainnet = '1';
+    const rinkeby = '4';
+    let subdomain = '';
+
+    // Detect whether the current browser is ethereum-compatible,
+    // and handle the case where it isn't:
+    if (typeof window.ethereum === 'undefined') {
+      showMsg('Looks like you need a Dapp browser to get started.' +
+        ' Consider installing <a target="_blank" href="https://metamask.io/">MetaMask!</a>');
+    } else {
+
+      // In the case the user has MetaMask installed, you can easily
+      // ask them to sign in and reveal their accounts:
+      ethereum.enable()
+
+      // Remember to handle the case they reject the request:
+        .catch(function (reason) {
+          if (reason === 'User rejected provider access') {
+            // The user didn't want to sign in!
+          } else {
+            // This shouldn't happen, so you might want to log this...
+            showMsg('There was an issue signing you in.')
+          }
+        })
+
+        // In the case they approve the log-in request, you'll receive their accounts:
+        .then(function (accounts) {
+          console.log(ethereum.networkVersion);
+          // You also should verify the user is on the correct network:
+          if (ethereum.networkVersion === mainnet) {
+            contractAddress = '0xb82545e883a22787b8912c4fbcdbf64156358701';
+          } else if (ethereum.networkVersion === rinkeby) {
+            contractAddress = '0x5807d311d872e81709de391a8ad13f9e16c5443b';
+            subdomain = 'rinkeby.'
+          } else {
+            showMsg('This application requires the mainnet or rinkeby network, please switch it in your MetaMask UI.');
+            return;
+          }
+
+          // Once you have a reference to user accounts,
+          // you can suggest transactions and signatures:
+          if (typeof web3 !== 'undefined') {
+            // Use Mist/MetaMask's provider
+            web3js = new Web3(web3.currentProvider);
+          } else {
+            showMsg('No web3? You should consider trying MetaMask!');
+            // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+            web3js = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+          }
+          const account = accounts[0];
+          const promoCode = web3js.eth.contract(PromoCodeABI).at(contractAddress);
+          promoCode.redeem(code, signature,
+            {from: account, gas: 100000},
+            function (err, transaction) {
+              if (err) {
+                return showMsg(`Fail to redeem token`);
+              }
+              let txLink = `https://${subdomain}etherscan.io/tx/${transaction}`;
+              showMsg(`Please wait for tx: <a target="_blank" href="${txLink}">${transaction}</a>`);
+            })
+        })
+    }
+  }
 </script>
 </body>
 </html>

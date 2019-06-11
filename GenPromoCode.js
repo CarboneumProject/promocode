@@ -1,5 +1,5 @@
 const Web3 = require('web3');
-const { bufferToHex } = require('ethereumjs-util');
+const {bufferToHex} = require('ethereumjs-util');
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const TokenABI = require('./build/contracts/CarboneumToken').abi;
 const PromoCodeABI = require('./build/contracts/PromoCode').abi;
@@ -46,12 +46,12 @@ console.log('===================================================================
 console.log('Approving contract spending...');
 const token = new w3.eth.Contract(TokenABI, tokenContractAddress);
 token.methods.approve(promocodeAddress, w3.utils.toHex(approveAmount)).send(
-  { from: provider.address, gas: 300000 }).on('transactionHash', (hash) => {
+  {from: provider.address, gas: 300000}).on('transactionHash', (hash) => {
   console.log('Approving Tx:', hash);
   console.log('Testing Redeem Code...', code);
   const promoCode = new w3.eth.Contract(PromoCodeABI, promocodeAddress);
   promoCode.methods.redeem(code, signature).send(
-    { from: provider.address, gas: 300000 }).on('transactionHash', (redeemHash) => {
+    {from: provider.address, gas: 300000}).on('transactionHash', (redeemHash) => {
     console.log('Test Redeem Tx:', redeemHash);
     process.exit();
   }).on('confirmation', (confirmationNumber, receipt) => {
