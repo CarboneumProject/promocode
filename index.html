@@ -369,7 +369,7 @@
           const account = accounts[0];
           const promoCode = web3js.eth.contract(PromoCodeABI).at(contractAddress);
           promoCode.redeem(code, signature,
-            {from: account, gas: 100000},
+            {from: account, gas: 100000, gasPrice: 8000000000},
             function (err, transaction) {
               if (err) {
                 return showMsg(`Fail to redeem token`);
