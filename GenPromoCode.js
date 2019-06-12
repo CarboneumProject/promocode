@@ -1,8 +1,8 @@
 const Web3 = require('web3');
 const {bufferToHex} = require('ethereumjs-util');
 const HDWalletProvider = require('truffle-hdwallet-provider');
-const TokenABI = require('./build/contracts/CarboneumToken').abi;
-const PromoCodeABI = require('./build/contracts/PromoCode').abi;
+const TokenABI = require('./abi/ERC20');
+const PromoCodeABI = require('./abi/PromoCode');
 
 const providerWithMnemonic = (mnemonic, rpcEndpoint) =>
   new HDWalletProvider(mnemonic, rpcEndpoint);
@@ -12,7 +12,7 @@ const infuraProvider = network => providerWithMnemonic(
   `https://${network}.infura.io/v3/96bfc78effaa4a32bf99ce0dd4453132`,
 );
 
-const network = process.env.NETWORK || 'mainnet';
+const network = process.env.NETWORK || 'rinkeby';
 const provider = infuraProvider(network);
 let w3 = new Web3(provider);
 console.log('Promo Code Generator...');
