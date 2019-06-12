@@ -20,7 +20,7 @@ const numberOfCode = 300;
 const approveAmount = amount.mul(new w3.utils.BN(numberOfCode + 100));
 let promocodeAddress = '';
 if (network === 'mainnet') {
-  promocodeAddress = '0xb2d34eccf8ea3a79705d7b0b41c47c5351b48779';
+  promocodeAddress = '0x6c358729d92d442ed9afe40a8e86794e8d6a76ca';
 } else {
   promocodeAddress = '0xd4cA2DeF3d3770299D6e53FF3F884F5e004675B8';
 }
