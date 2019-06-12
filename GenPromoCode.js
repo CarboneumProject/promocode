@@ -12,7 +12,7 @@ const infuraProvider = network => providerWithMnemonic(
   `https://${network}.infura.io/v3/96bfc78effaa4a32bf99ce0dd4453132`,
 );
 
-const network = process.env.NETWORK || 'mainnet';
+const network = process.env.NETWORK || 'rinkeby';
 const provider = infuraProvider(network);
 let w3 = new Web3(provider);
 const amount = new w3.utils.BN('88000000000000000000');
@@ -20,7 +20,7 @@ const numberOfCode = 300;
 const approveAmount = amount.mul(new w3.utils.BN(numberOfCode));
 let promocodeAddress = '';
 if (network === 'mainnet') {
-  promocodeAddress = '0xb82545e883a22787b8912c4fbcdbf64156358701';
+  promocodeAddress = '0xb2d34eccf8ea3a79705d7b0b41c47c5351b48779';
 } else {
   promocodeAddress = '0x5807d311d872e81709de391a8ad13f9e16c5443b';
 }
