@@ -12,17 +12,17 @@ const infuraProvider = network => providerWithMnemonic(
   `https://${network}.infura.io/v3/96bfc78effaa4a32bf99ce0dd4453132`,
 );
 
-const network = process.env.NETWORK || 'rinkeby';
+const network = process.env.NETWORK || 'mainnet';
 const provider = infuraProvider(network);
 let w3 = new Web3(provider);
 const amount = new w3.utils.BN('88000000000000000000');
 const numberOfCode = 300;
-const approveAmount = amount.mul(new w3.utils.BN(numberOfCode));
+const approveAmount = amount.mul(new w3.utils.BN(numberOfCode + 100));
 let promocodeAddress = '';
 if (network === 'mainnet') {
   promocodeAddress = '0xb2d34eccf8ea3a79705d7b0b41c47c5351b48779';
 } else {
-  promocodeAddress = '0x5807d311d872e81709de391a8ad13f9e16c5443b';
+  promocodeAddress = '0xd4cA2DeF3d3770299D6e53FF3F884F5e004675B8';
 }
 const tokenContractAddress = '0xd42debE4eDc92Bd5a3FBb4243e1ecCf6d63A4A5d';
 
@@ -33,7 +33,7 @@ let privateKey = bufferToHex(provider.wallet._privKey);
 console.log('#QRcodes');
 for (i; i <= numberOfCode + 1; i++) {
   code = 'C8190612' + i.toFixed(0).padStart(3, '0');
-  let sign = w3.eth.accounts.sign(w3.utils.fromUtf8(code), privateKey);
+  let sign = w3.eth.accounts.sign(w3.utils.keccak256(code), privateKey);
   signature = sign.signature;
   if (i < numberOfCode) {
     let link = `URL:https://carboneum.io/p/?c=${code}&s=${signature}`;
