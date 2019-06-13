@@ -321,7 +321,7 @@
           console.log(ethereum.networkVersion);
           // You also should verify the user is on the correct network:
           if (ethereum.networkVersion === mainnet) {
-            contractAddress = '0xf7e1c58873b97961c8e58c261f66499c50b34f1b';
+            contractAddress = '0xaacf5eca66aecc1ef36e7283b665aa9aac59a10f';
             network = 'mainnet';
           } else if (ethereum.networkVersion === rinkeby) {
             contractAddress = '0xf7e1c58873b97961c8e58c261f66499c50b34f1b';
@@ -344,9 +344,7 @@
           }
           const account = accounts[0];
           const promoCode = web3js.eth.contract(PromoCodeABI).at(contractAddress);
-          // http://localhost:3000/redeem
-          // https://carbonradas.io/promocode/redeem
-          fetch('https://carbonradas.io/promocode/redeem', {
+          fetch('https://carboneum.io/promocode/redeem', {
             method: 'post',
             headers: {
               'Accept': 'application/json, text/plain, */*',
