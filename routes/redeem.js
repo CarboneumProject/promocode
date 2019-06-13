@@ -10,29 +10,6 @@ const infuraProvider = network => providerWithMnemonic(
 );
 
 const router = express.Router();
-
-function keccak256(...args) {
-  args = args.map(arg => {
-    if (typeof arg === 'string') {
-      if (arg.substring(0, 2) === '0x') {
-        return arg.slice(2);
-      } else {
-        return web3.toHex(arg).slice(2);
-      }
-    }
-
-    if (typeof arg === 'number') {
-      return (arg).toString(16).padStart(64, '0');
-    } else {
-      return '';
-    }
-  });
-
-  args = args.join('');
-
-  return w3.sha3(args, {encoding: 'hex'});
-}
-
 router.post('/', async (req, res, next) => {
   try {
     const user = req.body;

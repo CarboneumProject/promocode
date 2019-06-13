@@ -12,7 +12,7 @@ const infuraProvider = network => providerWithMnemonic(
   `https://${network}.infura.io/v3/96bfc78effaa4a32bf99ce0dd4453132`,
 );
 
-const network = process.env.NETWORK || 'rinkeby';
+const network = process.env.NETWORK || 'mainnet';
 const provider = infuraProvider(network);
 let w3 = new Web3(provider);
 const amount = new w3.utils.BN('88000000000000000000');
