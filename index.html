@@ -94,7 +94,6 @@
   let code = url.searchParams.get('c');
   let signature = url.searchParams.get('s');
   document.getElementById('promocode').innerHTML = '<b>' + code + '</b>';
-  console.log(code, signature);
 
   function showMsg(msg) {
     document.getElementById('message').innerHTML = msg;
@@ -270,11 +269,15 @@
         "constant": false,
         "inputs": [
           {
+            "name": "redeemer",
+            "type": "address"
+          },
+          {
             "name": "promoCode",
             "type": "string"
           },
           {
-            "name": "signature",
+            "name": "redeemSignature",
             "type": "bytes"
           }
         ],
@@ -283,43 +286,14 @@
         "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "message",
-            "type": "string"
-          },
-          {
-            "name": "v",
-            "type": "uint8"
-          },
-          {
-            "name": "r",
-            "type": "bytes32"
-          },
-          {
-            "name": "s",
-            "type": "bytes32"
-          }
-        ],
-        "name": "verifyString",
-        "outputs": [
-          {
-            "name": "signer",
-            "type": "address"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "pure",
-        "type": "function"
       }
     ];
-    let contractAddress = '0x6c358729d92d442ed9afe40a8e86794e8d6a76ca';
+
+    let contractAddress = '0xf7e1c58873b97961c8e58c261f66499c50b34f1b';
     const mainnet = '1';
     const rinkeby = '4';
     let subdomain = '';
+    let network = '';
 
     // Detect whether the current browser is ethereum-compatible,
     // and handle the case where it isn't:
@@ -347,10 +321,12 @@
           console.log(ethereum.networkVersion);
           // You also should verify the user is on the correct network:
           if (ethereum.networkVersion === mainnet) {
-            contractAddress = '0x6c358729d92d442ed9afe40a8e86794e8d6a76ca';
+            contractAddress = '0xf7e1c58873b97961c8e58c261f66499c50b34f1b';
+            network = 'mainnet';
           } else if (ethereum.networkVersion === rinkeby) {
-            contractAddress = '0xd4cA2DeF3d3770299D6e53FF3F884F5e004675B8';
-            subdomain = 'rinkeby.'
+            contractAddress = '0xf7e1c58873b97961c8e58c261f66499c50b34f1b';
+            network = 'rinkeby';
+            subdomain = `${network}.`;
           } else {
             showMsg('This application requires the mainnet or rinkeby network, please switch it in your MetaMask UI.');
             return;
@@ -368,15 +344,38 @@
           }
           const account = accounts[0];
           const promoCode = web3js.eth.contract(PromoCodeABI).at(contractAddress);
-          promoCode.redeem(code, signature,
-            {from: account, gas: 100000, gasPrice: 8000000000},
-            function (err, transaction) {
-              if (err) {
-                return showMsg(`Fail to redeem token`);
+          // http://localhost:3000/redeem
+          // https://carbonradas.io/promocode/redeem
+          fetch('https://carbonradas.io/promocode/redeem', {
+            method: 'post',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({address: account, code: code, signature: signature, network: network})
+          }).then(function (response) {
+            if (!response.ok && response.status !== 400) {
+              throw Error(response.statusText);
+            }
+            return response;
+          }).then(res => res.json())
+            .then(res => {
+              if (res.status === 'ok') {
+                promoCode.redeem(account, code, res.redeemSignature,
+                  {from: account, gas: 100000, gasPrice: 8000000000},
+                  function (err, transaction) {
+                    if (err) {
+                      return showMsg(`Fail to redeem token`);
+                    }
+                    let txLink = `https://${subdomain}etherscan.io/tx/${transaction}`;
+                    showMsg(`Transaction sent tx: <a target="_blank" href="${txLink}">${transaction}</a>`);
+                  })
+              } else {
+                showMsg(res.message);
               }
-              let txLink = `https://${subdomain}etherscan.io/tx/${transaction}`;
-              showMsg(`Please wait for tx: <a target="_blank" href="${txLink}">${transaction}</a>`);
-            })
+            }).catch(function (error) {
+            showMsg(error);
+          });
         })
     }
   }
